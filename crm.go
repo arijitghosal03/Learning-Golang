@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/arijitghosal03/Learning-Golang/database"
-	"github.com/arijitghosal03/Learning-Golang/lead"
+	"github.com/arijitghosal03/Learning-Golang/tree/master/database"
+	"github.com/arijitghosal03/Learning-Golang/tree/master/lead"
 	"github.com/gofiber/fiber"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 	"github.com/jinzhu/gorm"
