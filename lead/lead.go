@@ -1,9 +1,9 @@
 package lead
 import (
-	"fmt"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
-	"github.com/arijitghosal03/Learning-Golang/database"
+		"first-project/database"
 	
 	"github.com/gofiber/fiber"
 )
@@ -15,7 +15,7 @@ type Lead struct {
 	Phone string     `json:"phone"`
 }
 
-func getLeads(c *fiber.Ctx) {
+func GetLeads(c *fiber.Ctx) {
 	db := database.DBConn
 	var leads []Lead
 	if err := db.Find(&leads).Error; err != nil {
@@ -25,7 +25,7 @@ func getLeads(c *fiber.Ctx) {
 	c.JSON(leads)
 }
 
-func newLead(c *fiber.Ctx) {
+func NewLead(c *fiber.Ctx) {
 	db := database.DBConn
 	lead := new(Lead)
 	if err := c.BodyParser(lead); err != nil {
@@ -35,7 +35,7 @@ func newLead(c *fiber.Ctx) {
 	db.Create(&lead)
 	c.JSON(lead)
 }
-func getLeadByID(c *fiber.Ctx) {
+func GetLeadByID(c *fiber.Ctx) {
 	id := c.Params("id")
 	db := database.DBConn
 	var lead Lead
@@ -45,7 +45,7 @@ func getLeadByID(c *fiber.Ctx) {
 	}
 	c.JSON(lead)
 }		
-func deleteLead(c *fiber.Ctx) {	
+func DeleteLead(c *fiber.Ctx) {	
    id:= c.Params("id")
    db := database.DBConn
    var lead Lead
